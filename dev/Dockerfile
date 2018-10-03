@@ -15,6 +15,7 @@ RUN /bin/bash -c "source  /opt/hunary/hunaryVenv/bin/activate"
 RUN git clone https://github.com/hunary/hunary-api
 RUN git clone https://github.com/hunary/hunary-cli
 WORKDIR /opt/hunary/hunary-api
+RUN /bin/bash -c "git fetch; git checkout docker"
 RUN pip install -r requirements.txt
 CMD python /opt/hunary/hunary-api/main.py
 
