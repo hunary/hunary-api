@@ -3,12 +3,12 @@ import spacy
 
 from pymongo import MongoClient
 
-
+# TODO(zf) call mongoclient one time
 client = MongoClient(
-    'localhost',
-    username='root',
-    password='example',
-    authMechanism='SCRAM-SHA-256'
+    'localhost'
+    # username='root',
+    # password='example',
+    # authMechanism='SCRAM-SHA-256'
 )
 nlp = spacy.load('en_core_web_sm')
 

@@ -11,10 +11,10 @@ from pymongo import MongoClient
 app = Flask('hunary_api')
 app.config.from_pyfile('conf/hunary.conf')
 
+# If no password or user supplied will try w/ no auth
 client = MongoClient(app.config['DB_HOST'],
-                     username=app.config['DB_USER'],
-                     password=app.config['DB_PASSWD'],
-                     authMechanism='SCRAM-SHA-256')
+                     username=app.config.get('DB_USER'),
+                     password=app.config.get('DB_PASSWD'))
 
 
 def jwrap(key, values):
