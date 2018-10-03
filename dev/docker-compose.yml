@@ -22,17 +22,11 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
   
   hunary-api:
-    image: hunary-api
+    image: hunary-aio:latest
     restart: always
     ports:
-      - 5000:5000
+      - 5000:80
+    volumes:
+      - ./dock-volume:/opt/hunary-apps
+
       
-  #services:
-  #  web:
-  #    build: .
-  #    ports:
-  #      - "8000:8000"
-  #  db:
-  #    image: postgres
-  #    ports:
-  #      - "8001:5432"
